@@ -25,9 +25,9 @@ doctrine:
             Resume:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Texts/Entity'
+                dir: '%kernel.project_dir%/src/Resume/Entity'
                 prefix: 'App\Resume'
-                alias: Texts
+                alias: Resume
         controller_resolver:
             auto_mapping: false
 
