@@ -1,0 +1,50 @@
+services:
+  nginx_dev:
+    container_name: ${PROJECT_NAME}_nginx_dev
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - local_network
+    restart: on-failure
+
+  api:
+    container_name: ${PROJECT_NAME}_api
+    build: ./app
+    volumes:
+      - ./app:/app
+    networks:
+      - local_network
+
+  umami:
+    container_name: ${PROJECT_NAME}_umami
+    image: elestio/umami:latest
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@database:5432/umami
+      DATABASE_TYPE: postgresql
+    depends_on:
+      - database
+    networks:
+      - local_network
+
+  database:
+    container_name: ${PROJECT_NAME}_postgres
+    build: ./db_conf
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    networks:
+      - local_network
+
+networks:
+  local_network:
+    external: true
+
+volumes:
+  db_data:
