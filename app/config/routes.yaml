@@ -1,5 +1,11 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
+user_api:
+    resource: ../src/User/Api/Action/
     type: attribute
+    prefix: /api/users
+    name_prefix: 'users_'
+
+resume_api:
+    resource: ../src/Resume/Api/Action/
+    type: attribute
+    prefix: /api/resumes
+    name_prefix: 'resumes_'

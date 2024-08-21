@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
+namespace App\Resume\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'resume')]
-final class Texts
+final class Text
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
