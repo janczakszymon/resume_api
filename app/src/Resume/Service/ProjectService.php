@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Service;
 
-use App\Resume\Api\Dto\CreateProjectDto;
-use App\Resume\Api\Dto\UpdateProjectDto;
+use App\Resume\Api\Dto\ProjectDto;
 use App\Resume\Entity\Project;
 use App\Resume\Repository\ProjectRepository;
 
@@ -17,7 +16,7 @@ final readonly class ProjectService
     {
     }
 
-    public function saveProject(CreateProjectDto $dto): Project
+    public function saveProject(ProjectDto $dto): Project
     {
         $project = new Project();
 
@@ -30,7 +29,7 @@ final readonly class ProjectService
         return $project;
     }
 
-    public function updateProject(Project $project, UpdateProjectDto $dto): Project
+    public function updateProject(Project $project, ProjectDto $dto): Project
     {
         $project->setName($dto->name);
         $project->setFullName($dto->fullName);

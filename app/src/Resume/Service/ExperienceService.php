@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Service;
 
-use App\Resume\Api\Dto\CreateExperienceDto;
-use App\Resume\Api\Dto\UpdateExperienceDto;
+use App\Resume\Api\Dto\ExperienceDto;
 use App\Resume\Entity\Experience;
 use App\Resume\Repository\ExperienceRepository;
 
@@ -17,7 +16,7 @@ final readonly class ExperienceService
     {
     }
 
-    public function saveExperience(CreateExperienceDto $dto): Experience
+    public function saveExperience(ExperienceDto $dto): Experience
     {
         $experience = new Experience();
 
@@ -32,7 +31,7 @@ final readonly class ExperienceService
         return $experience;
     }
 
-    public function updateExperience(Experience $experience, UpdateExperienceDto $dto): Experience
+    public function updateExperience(Experience $experience, ExperienceDto $dto): Experience
     {
         $experience->setCompany($dto->company);
         $experience->setLocation($dto->location);

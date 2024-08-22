@@ -6,7 +6,7 @@ namespace App\Resume\Api\Dto;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class CreateExperienceDto
+class ExperienceDto
 {
     #[Assert\NotNull]
     public string $company;

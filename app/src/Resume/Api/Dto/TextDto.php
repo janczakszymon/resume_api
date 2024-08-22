@@ -6,14 +6,17 @@ namespace App\Resume\Api\Dto;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class CreateProjectDto
+class TextDto
 {
     #[Assert\NotNull]
-    public string $name;
+    public string $textPrimary;
 
     #[Assert\NotNull]
-    public string $fullName;
+    public string $textSecondary;
 
     #[Assert\NotNull]
-    public string $description;
+    public string $language;
+
+    #[Assert\NotNull]
+    public string $section;
 }

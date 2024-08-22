@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Service;
 
-use App\Resume\Api\Dto\CreateTextDto;
-use App\Resume\Api\Dto\UpdateTextDto;
+use App\Resume\Api\Dto\TextDto;
 use App\Resume\Entity\Text;
 use App\Resume\Repository\TextRepository;
 
@@ -17,7 +16,7 @@ final readonly class TextService
     {
     }
 
-    public function saveText(CreateTextDto $dto): Text
+    public function saveText(TextDto $dto): Text
     {
         $newText = new Text();
 
@@ -31,7 +30,7 @@ final readonly class TextService
         return $newText;
     }
 
-    public function updateText(Text $text, UpdateTextDto $dto): Text
+    public function updateText(Text $text, TextDto $dto): Text
     {
         $text->setTextPrimary($dto->textPrimary);
         $text->setTextSecondary($dto->textSecondary);

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Action\Experience;
 
-use App\Resume\Api\Dto\CreateExperienceDto;
+use App\Resume\Api\Dto\ExperienceDto;
 use App\Resume\Api\Serializer\ExperienceSerializer;
 use App\Resume\Service\ExperienceService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +24,7 @@ final class AddExperience extends AbstractController
 
     #[Route(path: '/experiences', name: 'add_experience', methods: ['POST'])]
     public function __invoke(
-        #[MapRequestPayload] CreateExperienceDto $dto
+        #[MapRequestPayload] ExperienceDto $dto
     ): JsonResponse
     {
         $experience = $this->service->saveExperience($dto);

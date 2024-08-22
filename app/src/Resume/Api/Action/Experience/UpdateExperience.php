@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Action\Experience;
 
-use App\Resume\Api\Dto\UpdateExperienceDto;
+use App\Resume\Api\Dto\ExperienceDto;
 use App\Resume\Api\Serializer\ExperienceSerializer;
 use App\Resume\Repository\ExperienceRepository;
 use App\Resume\Service\ExperienceService;
@@ -26,8 +26,8 @@ final class UpdateExperience extends AbstractController
 
     #[Route(path: '/experiences/{id}', name: 'update_experience', methods: ['PUT'])]
     public function __invoke(
-        int                                      $id,
-        #[MapRequestPayload] UpdateExperienceDto $dto
+        int                                $id,
+        #[MapRequestPayload] ExperienceDto $dto
     ): JsonResponse
     {
         $experience = $this->repository->findOneBy(['id' => $id]);

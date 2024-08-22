@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Action\Project;
 
-use App\Resume\Api\Dto\CreateProjectDto;
+use App\Resume\Api\Dto\ProjectDto;
 use App\Resume\Api\Serializer\ProjectSerializer;
 use App\Resume\Service\ProjectService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +24,7 @@ final class AddProject extends AbstractController
 
     #[Route(path: '/projects', name: 'add_project', methods: ['POST'])]
     public function __invoke(
-        #[MapRequestPayload] CreateProjectDto $dto
+        #[MapRequestPayload] ProjectDto $dto
     ): JsonResponse
     {
         $project = $this->service->saveProject($dto);

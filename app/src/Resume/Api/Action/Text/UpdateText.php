@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Action\Text;
 
-use App\Resume\Api\Dto\UpdateTextDto;
+use App\Resume\Api\Dto\TextDto;
 use App\Resume\Api\Serializer\TextSerializer;
 use App\Resume\Repository\TextRepository;
 use App\Resume\Service\TextService;
@@ -26,8 +26,8 @@ final class UpdateText extends AbstractController
 
     #[Route(path: '/texts/{id}', name: 'update_text', methods: ['PUT'])]
     public function __invoke(
-        int                                $id,
-        #[MapRequestPayload] UpdateTextDto $dto
+        int                          $id,
+        #[MapRequestPayload] TextDto $dto
     ): JsonResponse
     {
         $text = $this->repository->findOneBy(['id' => $id]);

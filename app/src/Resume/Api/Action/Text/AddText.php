@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Action\Text;
 
-use App\Resume\Api\Dto\CreateTextDto;
+use App\Resume\Api\Dto\TextDto;
 use App\Resume\Api\Serializer\TextSerializer;
 use App\Resume\Service\TextService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +24,7 @@ final class AddText extends AbstractController
 
     #[Route(path: '/texts', name: 'add_text', methods: ['POST'])]
     public function __invoke(
-        #[MapRequestPayload] CreateTextDto $dto
+        #[MapRequestPayload] TextDto $dto
     ): JsonResponse
     {
         $text = $this->service->saveText($dto);

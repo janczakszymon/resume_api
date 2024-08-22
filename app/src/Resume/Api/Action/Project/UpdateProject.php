@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Action\Project;
 
-use App\Resume\Api\Dto\UpdateProjectDto;
+use App\Resume\Api\Dto\ProjectDto;
 use App\Resume\Api\Serializer\ProjectSerializer;
 use App\Resume\Repository\ProjectRepository;
 use App\Resume\Service\ProjectService;
@@ -26,8 +26,8 @@ final class UpdateProject extends AbstractController
 
     #[Route(path: '/projects/{id}', name: 'update_project', methods: ['PUT'])]
     public function __invoke(
-        int                                   $id,
-        #[MapRequestPayload] UpdateProjectDto $dto
+        int                             $id,
+        #[MapRequestPayload] ProjectDto $dto
     ): JsonResponse
     {
         $project = $this->repository->findOneBy(['id' => $id]);
