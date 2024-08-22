@@ -2,36 +2,36 @@
 
 declare(strict_types=1);
 
-namespace App\Resume\Api\Action;
+namespace App\Resume\Api\Action\Text;
 
-use App\Resume\Repository\ProjectRepository;
-use App\Resume\Service\ProjectService;
+use App\Resume\Repository\TextRepository;
+use App\Resume\Service\TextService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class DeleteProject extends AbstractController
+final class DeleteText extends AbstractController
 {
     public function __construct(
-        private readonly ProjectService    $service,
-        private readonly ProjectRepository $repository,
+        private readonly TextService    $service,
+        private readonly TextRepository $repository,
     )
     {
     }
 
-    #[Route(path: '/projects/{id}', name: 'delete_project', methods: ['DELETE'])]
+    #[Route(path: '/texts/{id}', name: 'delete_text', methods: ['DELETE'])]
     public function __invoke(
         int $id
     ): JsonResponse
     {
-        $project = $this->repository->findOneBy(['id' => $id]);
+        $text = $this->repository->findOneBy(['id' => $id]);
 
-        if (!$project) {
+        if (!$text) {
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        $this->service->removeProject($project);
+        $this->service->removeText($text);
 
         return new JsonResponse([], Response::HTTP_OK);
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Resume\Api\Action;
+namespace App\Resume\Api\Action\Project;
 
 use App\Resume\Api\Dto\UpdateProjectDto;
 use App\Resume\Api\Serializer\ProjectSerializer;

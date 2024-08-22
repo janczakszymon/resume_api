@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Resume\Api\Action;
+namespace App\Resume\Api\Action\Text;
 
 use App\Resume\Api\Dto\CreateTextDto;
 use App\Resume\Api\Serializer\TextSerializer;
