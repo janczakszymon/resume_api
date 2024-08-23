@@ -27,7 +27,7 @@ final class AddExperience extends AbstractController
         #[MapRequestPayload] ExperienceDto $dto
     ): JsonResponse
     {
-        $experience = $this->service->saveExperience($dto);
+        $experience = $this->service->save($dto);
 
         return new JsonResponse(
             $this->serializer->serialize($experience),

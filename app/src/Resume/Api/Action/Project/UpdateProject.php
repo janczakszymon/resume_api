@@ -37,7 +37,7 @@ final class UpdateProject extends AbstractController
         }
 
         return new JsonResponse(
-            $this->serializer->serialize($this->service->updateProject($project, $dto)),
+            $this->serializer->serialize($this->service->update($project, $dto)),
             Response::HTTP_OK
         );
     }

@@ -27,7 +27,7 @@ final class AddProject extends AbstractController
         #[MapRequestPayload] ProjectDto $dto
     ): JsonResponse
     {
-        $project = $this->service->saveProject($dto);
+        $project = $this->service->save($dto);
 
         return new JsonResponse(
             $this->serializer->serialize($project),

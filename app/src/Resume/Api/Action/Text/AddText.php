@@ -27,7 +27,7 @@ final class AddText extends AbstractController
         #[MapRequestPayload] TextDto $dto
     ): JsonResponse
     {
-        $text = $this->service->saveText($dto);
+        $text = $this->service->save($dto);
 
         return new JsonResponse(
             $this->serializer->serialize($text),

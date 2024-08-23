@@ -16,7 +16,7 @@ final readonly class ExperienceService
     {
     }
 
-    public function saveExperience(ExperienceDto $dto): Experience
+    public function save(ExperienceDto $dto): Experience
     {
         $experience = new Experience();
 
@@ -31,7 +31,7 @@ final readonly class ExperienceService
         return $experience;
     }
 
-    public function updateExperience(Experience $experience, ExperienceDto $dto): Experience
+    public function update(Experience $experience, ExperienceDto $dto): Experience
     {
         $experience->setCompany($dto->company);
         $experience->setLocation($dto->location);
@@ -44,7 +44,7 @@ final readonly class ExperienceService
         return $experience;
     }
 
-    public function removeExperience(Experience $experience): void
+    public function remove(Experience $experience): void
     {
         $this->repository->remove($experience, true);
     }

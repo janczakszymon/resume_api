@@ -31,7 +31,7 @@ final class DeleteProject extends AbstractController
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        $this->service->removeProject($project);
+        $this->service->remove($project);
 
         return new JsonResponse([], Response::HTTP_OK);
     }

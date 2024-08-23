@@ -31,7 +31,7 @@ final class DeleteExperience extends AbstractController
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        $this->service->removeExperience($experience);
+        $this->service->remove($experience);
 
         return new JsonResponse([], Response::HTTP_OK);
     }

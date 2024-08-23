@@ -16,7 +16,7 @@ final readonly class ProjectService
     {
     }
 
-    public function saveProject(ProjectDto $dto): Project
+    public function save(ProjectDto $dto): Project
     {
         $project = new Project();
 
@@ -29,7 +29,7 @@ final readonly class ProjectService
         return $project;
     }
 
-    public function updateProject(Project $project, ProjectDto $dto): Project
+    public function update(Project $project, ProjectDto $dto): Project
     {
         $project->setName($dto->name);
         $project->setFullName($dto->fullName);
@@ -40,7 +40,7 @@ final readonly class ProjectService
         return $project;
     }
 
-    public function removeProject(Project $project): void
+    public function remove(Project $project): void
     {
         $this->repository->remove($project, true);
     }

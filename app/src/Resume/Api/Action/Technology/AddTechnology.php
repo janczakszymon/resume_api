@@ -27,7 +27,7 @@ final class AddTechnology extends AbstractController
         #[MapRequestPayload] TechnologyDto $dto
     ): JsonResponse
     {
-        $technology = $this->service->saveTechnology($dto);
+        $technology = $this->service->save($dto);
 
         return new JsonResponse(
             $this->serializer->serialize($technology),

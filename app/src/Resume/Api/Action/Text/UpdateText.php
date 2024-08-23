@@ -37,7 +37,7 @@ final class UpdateText extends AbstractController
         }
 
         return new JsonResponse(
-            $this->serializer->serialize($this->service->updateText($text, $dto)),
+            $this->serializer->serialize($this->service->update($text, $dto)),
             Response::HTTP_OK
         );
     }

@@ -37,7 +37,7 @@ final class UpdateExperience extends AbstractController
         }
 
         return new JsonResponse(
-            $this->serializer->serialize($this->service->updateExperience($experience, $dto)),
+            $this->serializer->serialize($this->service->update($experience, $dto)),
             Response::HTTP_OK
         );
     }

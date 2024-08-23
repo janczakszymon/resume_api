@@ -37,7 +37,7 @@ final class UpdateTechnology extends AbstractController
         }
 
         return new JsonResponse(
-            $this->serializer->serialize($this->service->updateTechnology($technology, $dto)),
+            $this->serializer->serialize($this->service->update($technology, $dto)),
             Response::HTTP_OK
         );
     }

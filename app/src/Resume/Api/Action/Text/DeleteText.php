@@ -31,7 +31,7 @@ final class DeleteText extends AbstractController
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        $this->service->removeText($text);
+        $this->service->remove($text);
 
         return new JsonResponse([], Response::HTTP_OK);
     }

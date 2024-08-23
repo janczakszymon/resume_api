@@ -16,7 +16,7 @@ final readonly class TextService
     {
     }
 
-    public function saveText(TextDto $dto): Text
+    public function save(TextDto $dto): Text
     {
         $newText = new Text();
 
@@ -30,7 +30,7 @@ final readonly class TextService
         return $newText;
     }
 
-    public function updateText(Text $text, TextDto $dto): Text
+    public function update(Text $text, TextDto $dto): Text
     {
         $text->setTextPrimary($dto->textPrimary);
         $text->setTextSecondary($dto->textSecondary);
@@ -42,7 +42,7 @@ final readonly class TextService
         return $text;
     }
 
-    public function removeText(Text $text): void
+    public function remove(Text $text): void
     {
         $this->repository->remove($text, true);
     }

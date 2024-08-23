@@ -31,7 +31,7 @@ final class DeleteTechnology extends AbstractController
             return new JsonResponse([], Response::HTTP_NOT_FOUND);
         }
 
-        $this->service->removeTechnology($technology);
+        $this->service->remove($technology);
 
         return new JsonResponse([], Response::HTTP_OK);
     }

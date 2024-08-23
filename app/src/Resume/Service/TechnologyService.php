@@ -16,7 +16,7 @@ final readonly class TechnologyService
     {
     }
 
-    public function saveTechnology(TechnologyDto $dto): Technology
+    public function save(TechnologyDto $dto): Technology
     {
         $newTechnology = new Technology();
 
@@ -27,7 +27,7 @@ final readonly class TechnologyService
         return $newTechnology;
     }
 
-    public function updateTechnology(Technology $technology, TechnologyDto $dto): Technology
+    public function update(Technology $technology, TechnologyDto $dto): Technology
     {
         $technology->setName($dto->name);
 
@@ -36,7 +36,7 @@ final readonly class TechnologyService
         return $technology;
     }
 
-    public function removeTechnology(Technology $technology): void
+    public function remove(Technology $technology): void
     {
         $this->repository->remove($technology, true);
     }
