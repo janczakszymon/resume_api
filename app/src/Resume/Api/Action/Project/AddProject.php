@@ -22,7 +22,7 @@ final class AddProject extends AbstractController
     {
     }
 
-    #[Route(path: '/projects', name: 'add_project', methods: ['POST'])]
+    #[Route(path: '/projects/', name: 'add_project', methods: ['POST'])]
     public function __invoke(
         #[MapRequestPayload] ProjectDto $dto
     ): JsonResponse

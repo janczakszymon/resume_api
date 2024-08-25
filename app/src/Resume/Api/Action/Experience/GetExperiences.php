@@ -20,7 +20,7 @@ final class GetExperiences extends AbstractController
     {
     }
 
-    #[Route(path: '/experiences', name: 'get_experiences', methods: ['GET'])]
+    #[Route(path: '/experiences/', name: 'get_experiences', methods: ['GET'])]
     public function __invoke(): JsonResponse
     {
         $experiences = [];

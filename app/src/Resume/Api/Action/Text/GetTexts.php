@@ -20,7 +20,7 @@ final class GetTexts extends AbstractController
     {
     }
 
-    #[Route(path: '/texts', name: 'get_texts', methods: ['GET'])]
+    #[Route(path: '/texts/', name: 'get_texts', methods: ['GET'])]
     public function __invoke(): JsonResponse
     {
         $texts = [];

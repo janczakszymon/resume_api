@@ -20,7 +20,7 @@ final class DeleteText extends AbstractController
     {
     }
 
-    #[Route(path: '/texts/{id}', name: 'delete_text', methods: ['DELETE'])]
+    #[Route(path: '/texts/{id}/', name: 'delete_text', methods: ['DELETE'])]
     public function __invoke(
         int $id
     ): JsonResponse

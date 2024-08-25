@@ -20,7 +20,7 @@ final class DeleteTechnology extends AbstractController
     {
     }
 
-    #[Route(path: '/technologies/{id}', name: 'delete_technology', methods: ['DELETE'])]
+    #[Route(path: '/technologies/{id}/', name: 'delete_technology', methods: ['DELETE'])]
     public function __invoke(
         int $id
     ): JsonResponse

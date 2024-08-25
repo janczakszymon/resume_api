@@ -22,7 +22,7 @@ final class AddExperience extends AbstractController
     {
     }
 
-    #[Route(path: '/experiences', name: 'add_experience', methods: ['POST'])]
+    #[Route(path: '/experiences/', name: 'add_experience', methods: ['POST'])]
     public function __invoke(
         #[MapRequestPayload] ExperienceDto $dto
     ): JsonResponse

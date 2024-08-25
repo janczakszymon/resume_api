@@ -24,7 +24,7 @@ final class UpdateProject extends AbstractController
     {
     }
 
-    #[Route(path: '/projects/{id}', name: 'update_project', methods: ['PUT'])]
+    #[Route(path: '/projects/{id}/', name: 'update_project', methods: ['PUT'])]
     public function __invoke(
         int                             $id,
         #[MapRequestPayload] ProjectDto $dto

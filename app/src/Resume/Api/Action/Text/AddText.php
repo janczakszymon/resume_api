@@ -22,7 +22,7 @@ final class AddText extends AbstractController
     {
     }
 
-    #[Route(path: '/texts', name: 'add_text', methods: ['POST'])]
+    #[Route(path: '/texts/', name: 'add_text', methods: ['POST'])]
     public function __invoke(
         #[MapRequestPayload] TextDto $dto
     ): JsonResponse

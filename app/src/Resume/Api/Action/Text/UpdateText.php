@@ -24,7 +24,7 @@ final class UpdateText extends AbstractController
     {
     }
 
-    #[Route(path: '/texts/{id}', name: 'update_text', methods: ['PUT'])]
+    #[Route(path: '/texts/{id}/', name: 'update_text', methods: ['PUT'])]
     public function __invoke(
         int                          $id,
         #[MapRequestPayload] TextDto $dto

@@ -24,7 +24,7 @@ final class UpdateTechnology extends AbstractController
     {
     }
 
-    #[Route(path: '/technologies/{id}', name: 'update_technology', methods: ['PUT'])]
+    #[Route(path: '/technologies/{id}/', name: 'update_technology', methods: ['PUT'])]
     public function __invoke(
         int                                $id,
         #[MapRequestPayload] TechnologyDto $dto

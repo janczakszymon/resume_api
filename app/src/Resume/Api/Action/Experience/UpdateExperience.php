@@ -24,7 +24,7 @@ final class UpdateExperience extends AbstractController
     {
     }
 
-    #[Route(path: '/experiences/{id}', name: 'update_experience', methods: ['PUT'])]
+    #[Route(path: '/experiences/{id}/', name: 'update_experience', methods: ['PUT'])]
     public function __invoke(
         int                                $id,
         #[MapRequestPayload] ExperienceDto $dto

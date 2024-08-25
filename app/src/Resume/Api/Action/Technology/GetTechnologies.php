@@ -20,7 +20,7 @@ final class GetTechnologies extends AbstractController
     {
     }
 
-    #[Route(path: '/technologies', name: 'get_technologies', methods: ['GET'])]
+    #[Route(path: '/technologies/', name: 'get_technologies', methods: ['GET'])]
     public function __invoke(): JsonResponse
     {
         $technologies = [];

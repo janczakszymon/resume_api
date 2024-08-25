@@ -22,7 +22,7 @@ final class AddTechnology extends AbstractController
     {
     }
 
-    #[Route(path: '/technologies', name: 'add_technology', methods: ['POST'])]
+    #[Route(path: '/technologies/', name: 'add_technology', methods: ['POST'])]
     public function __invoke(
         #[MapRequestPayload] TechnologyDto $dto
     ): JsonResponse

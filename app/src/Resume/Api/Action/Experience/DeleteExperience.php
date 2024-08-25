@@ -20,7 +20,7 @@ final class DeleteExperience extends AbstractController
     {
     }
 
-    #[Route(path: '/experiences/{id}', name: 'delete_experience', methods: ['DELETE'])]
+    #[Route(path: '/experiences/{id}/', name: 'delete_experience', methods: ['DELETE'])]
     public function __invoke(
         int $id
     ): JsonResponse

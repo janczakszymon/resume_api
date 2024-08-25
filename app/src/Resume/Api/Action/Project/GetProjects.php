@@ -20,7 +20,7 @@ final class GetProjects extends AbstractController
     {
     }
 
-    #[Route(path: '/projects', name: 'get_projects', methods: ['GET'])]
+    #[Route(path: '/projects/', name: 'get_projects', methods: ['GET'])]
     public function __invoke(): JsonResponse
     {
         $projects = [];

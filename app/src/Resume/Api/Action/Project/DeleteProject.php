@@ -20,7 +20,7 @@ final class DeleteProject extends AbstractController
     {
     }
 
-    #[Route(path: '/projects/{id}', name: 'delete_project', methods: ['DELETE'])]
+    #[Route(path: '/projects/{id}/', name: 'delete_project', methods: ['DELETE'])]
     public function __invoke(
         int $id
     ): JsonResponse
