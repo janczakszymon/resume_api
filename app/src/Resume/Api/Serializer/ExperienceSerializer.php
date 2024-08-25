@@ -22,7 +22,7 @@ final readonly class ExperienceSerializer implements SerializerInterface
             'location' => $object->getLocation(),
             'position' => $object->getPosition(),
             'startDate' => $object->getStartDate()->format(DateTimeInterface::ATOM),
-            'endDate' => $object->getEndDate()->format(DateTimeInterface::ATOM),
+            'endDate' => $object->getEndDate()?->format(DateTimeInterface::ATOM),
         ];
     }
 }

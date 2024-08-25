@@ -19,8 +19,7 @@ final class ExperienceDto
     #[Assert\NotNull]
     public \DateTime $startDate;
 
-    #[Assert\NotNull]
-    public \DateTime $endDate;
+    public ?\DateTime $endDate = null;
 
     /** @var TranslationDto[] $position */
     #[Assert\Valid]
