@@ -24,6 +24,9 @@ final class Project
     #[ORM\Column]
     private array $description = [];
 
+    #[ORM\Column]
+    private array $links = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,5 +65,15 @@ final class Project
     public function setDescription(array $description): void
     {
         $this->description = $description;
+    }
+
+    public function getLinks(): array
+    {
+        return $this->links;
+    }
+
+    public function setLinks(array $links): void
+    {
+        $this->links = $links;
     }
 }

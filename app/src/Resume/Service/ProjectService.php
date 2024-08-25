@@ -23,6 +23,7 @@ final readonly class ProjectService
         $project->setName($dto->name);
         $project->setFullName($dto->fullName);
         $project->setDescription($dto->description);
+        $project->setLinks($dto->links);
 
         $this->repository->save($project, true);
 
@@ -34,6 +35,7 @@ final readonly class ProjectService
         $project->setName($dto->name);
         $project->setFullName($dto->fullName);
         $project->setDescription($dto->description);
+        $project->setLinks($dto->links);
 
         $this->repository->save($project, true);
 

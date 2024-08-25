@@ -18,15 +18,15 @@ final readonly class TextService
 
     public function save(TextDto $dto): Text
     {
-        $newText = new Text();
+        $text = new Text();
 
-        $newText->setTextPrimary($dto->textPrimary);
-        $newText->setTextSecondary($dto->textSecondary);
-        $newText->setSection($dto->section);
+        $text->setTextPrimary($dto->textPrimary);
+        $text->setTextSecondary($dto->textSecondary);
+        $text->setSection($dto->section);
 
-        $this->repository->save($newText, true);
+        $this->repository->save($text, true);
 
-        return $newText;
+        return $text;
     }
 
     public function update(Text $text, TextDto $dto): Text

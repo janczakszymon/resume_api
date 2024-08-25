@@ -18,13 +18,13 @@ final readonly class TechnologyService
 
     public function save(TechnologyDto $dto): Technology
     {
-        $newTechnology = new Technology();
+        $technology = new Technology();
 
-        $newTechnology->setName($dto->name);
+        $technology->setName($dto->name);
 
-        $this->repository->save($newTechnology, true);
+        $this->repository->save($technology, true);
 
-        return $newTechnology;
+        return $technology;
     }
 
     public function update(Technology $technology, TechnologyDto $dto): Technology
