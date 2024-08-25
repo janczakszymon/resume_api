@@ -15,14 +15,14 @@ final class Project
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 254)]
-    private ?string $name = null;
+    #[ORM\Column]
+    private array $name = [];
 
-    #[ORM\Column(length: 254)]
-    private ?string $fullName = null;
+    #[ORM\Column]
+    private array $fullName = [];
 
-    #[ORM\Column(length: 254)]
-    private ?string $description = null;
+    #[ORM\Column]
+    private array $description = [];
 
     public function getId(): ?int
     {
@@ -34,32 +34,32 @@ final class Project
         $this->id = $id;
     }
 
-    public function getName(): ?string
+    public function getName(): array
     {
         return $this->name;
     }
 
-    public function setName(?string $name): void
+    public function setName(array $name): void
     {
         $this->name = $name;
     }
 
-    public function getFullName(): ?string
+    public function getFullName(): array
     {
         return $this->fullName;
     }
 
-    public function setFullName(?string $fullName): void
+    public function setFullName(array $fullName): void
     {
         $this->fullName = $fullName;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): array
     {
         return $this->description;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(array $description): void
     {
         $this->description = $description;
     }

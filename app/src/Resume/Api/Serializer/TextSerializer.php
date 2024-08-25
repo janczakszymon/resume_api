@@ -19,7 +19,6 @@ final readonly class TextSerializer implements SerializerInterface
             'id' => $object->getId(),
             'textPrimary' => $object->getTextPrimary(),
             'textSecondary' => $object->getTextSecondary(),
-            'language' => $object->getLanguage(),
             'section' => $object->getSection(),
         ];
     }

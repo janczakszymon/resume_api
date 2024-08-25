@@ -22,7 +22,6 @@ final readonly class TextService
 
         $newText->setTextPrimary($dto->textPrimary);
         $newText->setTextSecondary($dto->textSecondary);
-        $newText->setLanguage($dto->language);
         $newText->setSection($dto->section);
 
         $this->repository->save($newText, true);
@@ -34,7 +33,6 @@ final readonly class TextService
     {
         $text->setTextPrimary($dto->textPrimary);
         $text->setTextSecondary($dto->textSecondary);
-        $text->setLanguage($dto->language);
         $text->setSection($dto->section);
 
         $this->repository->save($text, true);

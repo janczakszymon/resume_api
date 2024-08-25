@@ -18,8 +18,8 @@ final class Experience
     #[ORM\Column(length: 254)]
     private ?string $company = null;
 
-    #[ORM\Column(length: 254)]
-    private ?string $position = null;
+    #[ORM\Column]
+    private array $position = [];
 
     #[ORM\Column(length: 254)]
     private ?string $location = null;
@@ -50,12 +50,12 @@ final class Experience
         $this->company = $company;
     }
 
-    public function getPosition(): ?string
+    public function getPosition(): array
     {
         return $this->position;
     }
 
-    public function setPosition(?string $position): void
+    public function setPosition(array $position): void
     {
         $this->position = $position;
     }

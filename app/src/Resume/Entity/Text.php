@@ -15,17 +15,14 @@ final class Text
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 2)]
-    private ?string $language = null;
-
     #[ORM\Column(length: 254)]
     private ?string $section = null;
 
-    #[ORM\Column(length: 254)]
-    private ?string $textPrimary = null;
+    #[ORM\Column]
+    private array $textPrimary = [];
 
-    #[ORM\Column(length: 254)]
-    private ?string $textSecondary = null;
+    #[ORM\Column]
+    private array $textSecondary = [];
 
     public function getId(): ?int
     {
@@ -35,16 +32,6 @@ final class Text
     public function setId(?int $id): void
     {
         $this->id = $id;
-    }
-
-    public function getLanguage(): ?string
-    {
-        return $this->language;
-    }
-
-    public function setLanguage(?string $language): void
-    {
-        $this->language = $language;
     }
 
     public function getSection(): ?string
@@ -57,22 +44,22 @@ final class Text
         $this->section = $section;
     }
 
-    public function getTextPrimary(): ?string
+    public function getTextPrimary(): array
     {
         return $this->textPrimary;
     }
 
-    public function setTextPrimary(?string $textPrimary): void
+    public function setTextPrimary(array $textPrimary): void
     {
         $this->textPrimary = $textPrimary;
     }
 
-    public function getTextSecondary(): ?string
+    public function getTextSecondary(): array
     {
         return $this->textSecondary;
     }
 
-    public function setTextSecondary(?string $textSecondary): void
+    public function setTextSecondary(array $textSecondary): void
     {
         $this->textSecondary = $textSecondary;
     }

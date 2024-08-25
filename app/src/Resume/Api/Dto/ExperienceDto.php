@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Dto;
 
+use App\Translation\Dto\TranslationDto;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Translation\Validator as TranslationAssert;
 
-class ExperienceDto
+final class ExperienceDto
 {
     #[Assert\NotNull]
     public string $company;
@@ -15,11 +17,13 @@ class ExperienceDto
     public string $location;
 
     #[Assert\NotNull]
-    public string $position;
-
-    #[Assert\NotNull]
     public \DateTime $startDate;
 
     #[Assert\NotNull]
     public \DateTime $endDate;
+
+    /** @var TranslationDto[] $position */
+    #[Assert\Valid]
+    #[TranslationAssert\ContainRequiredLanguages]
+    public array $position = [];
 }

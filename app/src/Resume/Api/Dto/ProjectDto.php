@@ -4,16 +4,24 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Dto;
 
+use App\Translation\Dto\TranslationDto;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Translation\Validator as TranslationAssert;
 
-class ProjectDto
+final class ProjectDto
 {
-    #[Assert\NotNull]
-    public string $name;
+    /** @var TranslationDto[] $name */
+    #[Assert\Valid]
+    #[TranslationAssert\ContainRequiredLanguages]
+    public array $name = [];
 
-    #[Assert\NotNull]
-    public string $fullName;
+    /** @var TranslationDto[] $fullName */
+    #[Assert\Valid]
+    #[TranslationAssert\ContainRequiredLanguages]
+    public array $fullName = [];
 
-    #[Assert\NotNull]
-    public string $description;
+    /** @var TranslationDto[] $description */
+    #[Assert\Valid]
+    #[TranslationAssert\ContainRequiredLanguages]
+    public array $description = [];
 }

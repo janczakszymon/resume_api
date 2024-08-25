@@ -4,19 +4,25 @@ declare(strict_types=1);
 
 namespace App\Resume\Api\Dto;
 
+use App\Resume\Enum\AvailableSectionsEnum;
+use App\Translation\Dto\TranslationDto;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Translation\Validator as TranslationAssert;
+use App\Core\Validator as CoreAssert;
 
-class TextDto
+final class TextDto
 {
     #[Assert\NotNull]
-    public string $textPrimary;
-
-    #[Assert\NotNull]
-    public string $textSecondary;
-
-    #[Assert\NotNull]
-    public string $language;
-
-    #[Assert\NotNull]
+    #[CoreAssert\EnumChoice(enum: AvailableSectionsEnum::class)]
     public string $section;
+
+    /** @var TranslationDto[] $textPrimary */
+    #[Assert\Valid]
+    #[TranslationAssert\ContainRequiredLanguages]
+    public array $textPrimary = [];
+
+    /** @var TranslationDto[] $textSecondary */
+    #[Assert\Valid]
+    #[TranslationAssert\ContainRequiredLanguages]
+    public array $textSecondary = [];
 }
