@@ -9,3 +9,9 @@ resume_api:
     type: attribute
     prefix: /api/resumes
     name_prefix: 'resumes_'
+
+resume_public_api:
+    resource: ../src/Resume/PublicApi/Action/
+    type: attribute
+    prefix: /public_api/resumes
+    name_prefix: 'p_resumes_'
