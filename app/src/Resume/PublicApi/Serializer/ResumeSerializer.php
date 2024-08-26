@@ -34,7 +34,7 @@ final class ResumeSerializer extends BaseSerializer
         ];
 
         foreach ($texts as $text) {
-            $values['texts'][] = $this->serializeText($text);
+            $values['texts'][$text->getSection()] = $this->serializeText($text);
         }
 
         foreach ($experiences as $experience) {
@@ -59,7 +59,6 @@ final class ResumeSerializer extends BaseSerializer
         }
 
         return [
-            'section' => $object->getSection(),
             'textPrimary' => self::formatTranslations($object->getTextPrimary()),
             'textSecondary' => self::formatTranslations($object->getTextSecondary()),
         ];
@@ -98,25 +97,8 @@ final class ResumeSerializer extends BaseSerializer
         }
 
         return [
-            'name' => $object->getName(),
-            'fullName' => self::formatTranslations($object->getFullName()),
-            'description' => self::formatTranslations($object->getDescription()),
-            'links' => self::serializeProjectLinks($object->getLinks()),
+            'id' => $object->getId(),
+            'name' => $object->getName()
         ];
-    }
-
-    private function serializeProjectLinks(array $links): array
-    {
-        $formattedLinks = [];
-
-        foreach ($links as $link) {
-            $formattedLinks[] = [
-                'address' => $link['address'],
-                'name' => self::formatTranslations($link['name']),
-                'icon' => $link['icon'],
-            ];
-        }
-
-        return $formattedLinks;
     }
 }
