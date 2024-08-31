@@ -15,11 +15,11 @@ final class ProjectLinksDto
     #[TranslationAssert\ContainRequiredLanguages]
     public array $name = [];
 
-    #[Assert\NotBlank]
+    #[Assert\NotNull]
     #[Assert\Type('string')]
     public string $address;
 
-    #[Assert\NotBlank]
+    #[Assert\NotNull]
     #[Assert\Type('string')]
     public string $icon;
 }
