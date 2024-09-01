@@ -21,4 +21,17 @@ final class UserSerializer implements SerializerInterface
             'roles' => $object->getRoles(),
         ];
     }
+
+    public function serializeSession(object $object): array
+    {
+        if (!$object instanceof User) {
+            return [];
+        }
+
+        return [
+            'id' => $object->getId(),
+            'username' => $object->getUsername(),
+            'roles' => $object->getRoles()
+        ];
+    }
 }

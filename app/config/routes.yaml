@@ -15,3 +15,14 @@ resume_public_api:
     type: attribute
     prefix: /public_api/resumes
     name_prefix: 'p_resumes_'
+
+api_login_check:
+    path: /api/login/
+    methods: ['post']
+
+api_refresh_token:
+    path: /api/token/refresh/
+    methods: ['post']
+
+api_logout:
+    path: /api/logout/
