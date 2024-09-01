@@ -20,7 +20,7 @@ final readonly class ProjectSerializer implements SerializerInterface
             'name' => $object->getName(),
             'fullName' => $object->getFullName(),
             'description' => $object->getDescription(),
-            'links' => $object->getLinks(),
+            'type' => $object->getType(),
         ];
     }
 }

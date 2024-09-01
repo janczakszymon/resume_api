@@ -24,8 +24,8 @@ final class Project
     #[ORM\Column]
     private array $description = [];
 
-    #[ORM\Column]
-    private array $links = [];
+    #[ORM\Column(length: 254)]
+    private ?string $type = null;
 
     public function getId(): ?int
     {
@@ -67,13 +67,13 @@ final class Project
         $this->description = $description;
     }
 
-    public function getLinks(): array
+    public function getType(): ?string
     {
-        return $this->links;
+        return $this->type;
     }
 
-    public function setLinks(array $links): void
+    public function setType(?string $type): void
     {
-        $this->links = $links;
+        $this->type = $type;
     }
 }

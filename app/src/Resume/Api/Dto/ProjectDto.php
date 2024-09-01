@@ -25,7 +25,6 @@ final class ProjectDto
     #[TranslationAssert\ContainRequiredLanguages]
     public array $description = [];
 
-    /** @var ProjectLinksDto[] $links */
-    #[Assert\Valid]
-    public array $links = [];
+    #[Assert\NotNull]
+    public string $type;
 }
