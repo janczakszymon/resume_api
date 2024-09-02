@@ -34,7 +34,7 @@ final class ResumeSerializer extends BaseSerializer
         ];
 
         foreach ($texts as $text) {
-            $values['texts'][$text->getSection()] = $this->serializeText($text);
+            $values['texts'][$text->getSection()][] = $this->serializeText($text);
         }
 
         foreach ($experiences as $experience) {
