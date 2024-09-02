@@ -4,6 +4,8 @@ services:
     build: ./app
     volumes:
       - ./app:/app
+    ports:
+      - "9000:9000"
     networks:
       - local_network
 
