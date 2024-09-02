@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'resume')]
-final class Text
+class Text
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
