@@ -20,7 +20,7 @@ final class GetProjectById extends AbstractController
     {
     }
 
-    #[Route(path: '/projects/${id}/', name: 'get_resume_project_by_id', methods: ['GET'])]
+    #[Route(path: '/projects/{id}/', name: 'get_resume_project_by_id', methods: ['GET'])]
     public function __invoke(int $id): JsonResponse
     {
         $project = $this->projectRepository->findOneBy(['id' => $id]);
