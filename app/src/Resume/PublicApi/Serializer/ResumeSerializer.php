@@ -98,7 +98,8 @@ final class ResumeSerializer extends BaseSerializer
 
         return [
             'id' => $object->getId(),
-            'name' => self::formatTranslations($object->getName())
+            'name' => self::formatTranslations($object->getName()),
+            'type' => $object->getType()
         ];
     }
 }
