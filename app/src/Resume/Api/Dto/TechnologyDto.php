@@ -8,6 +8,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class TechnologyDto
 {
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $name;
 }

@@ -12,7 +12,7 @@ use App\Core\Validator as CoreAssert;
 
 final class TextDto
 {
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     #[CoreAssert\EnumChoice(enum: AvailableSectionsEnum::class)]
     public string $section;
 
@@ -22,7 +22,7 @@ final class TextDto
     public array $textPrimary = [];
 
     /** @var TranslationDto[] $textSecondary */
-    #[Assert\Valid]
+    #[Assert\NotBlank]
     #[TranslationAssert\ContainRequiredLanguages]
     public array $textSecondary = [];
 }

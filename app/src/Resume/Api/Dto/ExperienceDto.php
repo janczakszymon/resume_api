@@ -10,13 +10,13 @@ use App\Translation\Validator as TranslationAssert;
 
 final class ExperienceDto
 {
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $company;
 
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $location;
 
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public \DateTime $startDate;
 
     public ?\DateTime $endDate = null;

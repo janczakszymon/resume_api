@@ -8,9 +8,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class TranslationDto
 {
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $language;
 
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $text;
 }

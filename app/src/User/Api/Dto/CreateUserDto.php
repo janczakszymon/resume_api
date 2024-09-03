@@ -8,10 +8,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class CreateUserDto
 {
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $username;
 
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $password;
 
     #[Assert\NotNull]

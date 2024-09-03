@@ -8,12 +8,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 final class UpdateUserPasswordDto
 {
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $oldPassword;
 
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $newPassword;
 
-    #[Assert\NotNull]
+    #[Assert\NotBlank]
     public string $confirmNewPassword;
 }
