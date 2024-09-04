@@ -9,6 +9,9 @@ security:
             entity:
                 class: App\User\Entity\User
                 property: username
+    role_hierarchy:
+        ROLE_GUEST: ROLE_GUEST
+        ROLE_ADMIN: [ ROLE_GUEST ]
     firewalls:
         login:
             pattern: ^/api/login/
@@ -43,7 +46,8 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/api/(login|token/refresh), roles: PUBLIC_ACCESS }
-        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api, roles: ROLE_GUEST, methods: ['GET'] }
+        - { path: ^/api, roles: ROLE_ADMIN }
 
 when@test:
     security:
