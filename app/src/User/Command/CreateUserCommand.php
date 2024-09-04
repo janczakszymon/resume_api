@@ -6,17 +6,17 @@ namespace App\User\Command;
 
 use App\User\Entity\User;
 use App\User\Repository\UserRepository;
-use Random\RandomException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Console\Input\InputArgument;
 
 #[AsCommand(
-    name: 'app:create-admin-user',
-    description: 'Creates a new admin user.',
-    aliases: ['app:add-user'],
+    name: 'app:create-user',
+    description: 'Creates a new user.',
+    aliases: ['app:create-user'],
     hidden: false
 )]
 class CreateUserCommand extends Command
@@ -29,21 +29,30 @@ class CreateUserCommand extends Command
         parent::__construct();
     }
 
+    protected function configure()
+    {
+        $this
+            ->addArgument('username', InputArgument::REQUIRED, 'The username of the user.')
+            ->addArgument('password', InputArgument::REQUIRED, 'The password of the user.')
+            ->addArgument('role', InputArgument::REQUIRED, 'The role of the user.');
+    }
+
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $adminUsername = "admin";
-        $plaintextPassword = self::randomPassword();
+        $username = $input->getArgument('username');
+        $plaintextPassword = $input->getArgument('password');
 
-        if ($this->repository->findOneBy(['username' => $adminUsername])) {
+        if ($this->repository->findOneBy(['username' => $username])) {
             $output->writeln([
-                "Admin account ($adminUsername) already exists.",
+                "Account ($username) already exists.",
             ]);
 
             return Command::FAILURE;
         }
 
         $output->writeln([
-            "Creating admin user with username '$adminUsername'",
+            "Creating user with username '$username'",
             "password: $plaintextPassword"
         ]);
 
@@ -55,27 +64,11 @@ class CreateUserCommand extends Command
         );
 
         $user->setPassword($hashedPassword);
-        $user->setUsername($adminUsername);
-        $user->setRoles(['ROLE_ADMIN']);
+        $user->setUsername($username);
+        $user->setRoles([$input->getArgument('role')]);
 
         $this->repository->save($user, true);
 
         return Command::SUCCESS;
-    }
-
-    /**
-     * @throws RandomException
-     */
-    private function randomPassword(): string
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-
-        for ($i = 0; $i < 8; $i++) {
-            $randomString .= $characters[random_int(0, $charactersLength - 1)];
-        }
-
-        return $randomString;
     }
 }
