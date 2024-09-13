@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Entity;
 
+use App\Translation\Dto\TranslationDto;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -18,9 +19,11 @@ class Text
     #[ORM\Column(length: 254)]
     private ?string $section = null;
 
+    /** @var array<TranslationDto> $textPrimary */
     #[ORM\Column]
     private array $textPrimary = [];
 
+    /** @var array<TranslationDto> $textSecondary */
     #[ORM\Column]
     private array $textSecondary = [];
 
@@ -44,21 +47,25 @@ class Text
         $this->section = $section;
     }
 
+    /** @return  array<TranslationDto> */
     public function getTextPrimary(): array
     {
         return $this->textPrimary;
     }
 
+    /** @param array<TranslationDto> $textPrimary */
     public function setTextPrimary(array $textPrimary): void
     {
         $this->textPrimary = $textPrimary;
     }
 
+    /** @return  array<TranslationDto> */
     public function getTextSecondary(): array
     {
         return $this->textSecondary;
     }
 
+    /** @param array<TranslationDto> $textSecondary */
     public function setTextSecondary(array $textSecondary): void
     {
         $this->textSecondary = $textSecondary;

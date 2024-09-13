@@ -18,6 +18,7 @@ final class ResumeSerializer extends BaseSerializer
      * @param Experience[] $experiences
      * @param Project[] $projects
      * @param Technology[] $technologies
+     * @return array<string, mixed>
      */
     public function serialize(
         array $texts,
@@ -52,6 +53,7 @@ final class ResumeSerializer extends BaseSerializer
         return $values;
     }
 
+    /** @return array<string, array<string, string>> */
     private function serializeText(object $object): array
     {
         if (!($object instanceof Text)) {
@@ -64,6 +66,7 @@ final class ResumeSerializer extends BaseSerializer
         ];
     }
 
+    /** @return array<string, string> */
     private function serializeExperience(object $object): array
     {
         if (!($object instanceof Experience)) {
@@ -79,6 +82,7 @@ final class ResumeSerializer extends BaseSerializer
         ];
     }
 
+    /** @return array<string, string> */
     private function serializeTechnology(object $object): array
     {
         if (!($object instanceof Technology)) {
@@ -90,6 +94,7 @@ final class ResumeSerializer extends BaseSerializer
         ];
     }
 
+    /** @return array<string, string|int> */
     private function serializeProject(object $object): array
     {
         if (!($object instanceof Project)) {

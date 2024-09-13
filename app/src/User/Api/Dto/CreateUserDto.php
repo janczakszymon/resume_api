@@ -14,6 +14,7 @@ class CreateUserDto
     #[Assert\NotBlank]
     public string $password;
 
+    /** @var array<string> $roles */
     #[Assert\NotNull]
     public array $roles;
 }

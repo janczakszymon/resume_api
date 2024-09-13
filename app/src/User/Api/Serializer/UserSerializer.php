@@ -22,6 +22,7 @@ final class UserSerializer implements SerializerInterface
         ];
     }
 
+    /** @return array<string, string> */
     public function serializeSession(object $object): array
     {
         if (!$object instanceof User) {

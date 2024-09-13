@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 class ContainRequiredLanguagesValidator extends ConstraintValidator
 {
-    /** @var TranslationDto[] $value */
+    /** @param array<TranslationDto> $value */
     public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof ContainRequiredLanguages) {
@@ -22,10 +22,7 @@ class ContainRequiredLanguagesValidator extends ConstraintValidator
         $containTranslations = [];
 
         foreach ($value as $translation) {
-            if (
-                !is_subclass_of($translation, TranslationDto::class)
-                && !($translation instanceof TranslationDto)
-            ) {
+            if (!($translation instanceof TranslationDto)) {
                 throw new UnexpectedTypeException($constraint, TranslationDto::class);
             }
 

@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 class EnumChoiceValidator extends ConstraintValidator
 {
     /**
+     * @param string $value
      * @throws ReflectionException
      */
     public function validate($value, Constraint $constraint): void
