@@ -9,21 +9,23 @@ use Symfony\Component\Validator\Constraint;
 #[\Attribute]
 class EnumChoice extends Constraint
 {
-    public $enum;
+    public string $enum;
 
     public string $message = "Choice '{{ choice }}' is incorrect";
 
+    /**
+     * @param string $enum
+     * @param array<mixed>|null $groups
+     * @param mixed|null $payload
+     * @param array<mixed> $options
+     */
     public function __construct(
-        $enum,
+        string $enum,
         ?array $groups = null,
-        $payload = null,
-        array $options = [])
+        mixed  $payload = null,
+        array  $options = [])
     {
-        if (\is_array($enum)) {
-            $options = array_merge($enum, $options);
-        } elseif (null !== $enum) {
-            $options['value'] = $enum;
-        }
+        $options['value'] = $enum;
 
         parent::__construct($options, $groups, $payload);
     }

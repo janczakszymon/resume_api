@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class UpdateUserRolesDto
 {
+    /** @var array<string> $roles */
     #[Assert\NotNull]
     public array $roles;
 }

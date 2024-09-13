@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Resume\Entity;
 
+use App\Translation\Dto\TranslationDto;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -18,6 +19,7 @@ class Experience
     #[ORM\Column(length: 254)]
     private ?string $company = null;
 
+    /** @var array<TranslationDto> $position */
     #[ORM\Column]
     private array $position = [];
 
@@ -50,11 +52,13 @@ class Experience
         $this->company = $company;
     }
 
+    /** @return  array<TranslationDto> */
     public function getPosition(): array
     {
         return $this->position;
     }
 
+    /** @param array<TranslationDto> $position */
     public function setPosition(array $position): void
     {
         $this->position = $position;
